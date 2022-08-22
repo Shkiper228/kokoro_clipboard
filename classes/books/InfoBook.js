@@ -41,11 +41,11 @@ class InfoBook {
         if(!this.channel) {
             this.channel = await groundChannel(this.client, this.name.toString().replace(' ', '-'));
         } 
-        this.channel.permissionOverwrites.create(this.client.guild.roles.everyone, {
+        /*this.channel.permissionOverwrites.create(this.client.guild.roles.everyone, {
 			'VIEW_CHANNEL': true,
 			'SEND_MESSAGES': false,
 			'ADD_REACTIONS': false
-		})
+		})*/
 
         this.message = await createOrFindMessage(this.client, this.channel, {embeds: [{
             title: 'Інформація',

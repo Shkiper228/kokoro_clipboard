@@ -31,9 +31,9 @@ module.exports.findOrCreateChannel = findOrCreateChannel;
 
 
 async function groundChannel (client, name, data = {}, primary = true) {
-    try {
+    //try {
         const channels = await client.guild.channels.fetch(); // отримати всі канали
-        name = name == undefined ? 'undefined' : name;
+        data.name = name == undefined ? 'undefined' : name;
         data.type = data.type == undefined ? 0 : data.type;
         
 
@@ -43,10 +43,6 @@ async function groundChannel (client, name, data = {}, primary = true) {
         data.type != 'GUILD_PUBLIC_THREAD' && data.type != 'GUILD_PRIVATE_THREAD' && 
         data.type != 'GUILD_STAGE_VOICE' && data.type != 'UNKNOWN') data.type = 'GUILD_TEXT';
         
-        let channel = channels.find(channel => {
-            if(channel.name.toString().toLowerCase() === name.toLowerCase() && channel.type === data.type) return true;
-        })
-
         switch (data.type) {
             case 'GUILD_TEXT':
                 data.type = 0;
@@ -65,16 +61,22 @@ async function groundChannel (client, name, data = {}, primary = true) {
                 break;
         }
 
+        let channel = channels.find(channel => {
+            if(channel.name.toString().toLowerCase() === name.toLowerCase() && channel.type === data.type) return true;
+        })
+
+        
+
         if(channel){
             await channel.edit(data)
             return channel;
         } else {
-            channel = await client.guild.channels.create(name, data);
+            channel = await client.guild.channels.create(data);
             return channel;
         }
-    } catch (error) {
-        log(`Щось пішло не так під час створення каналу \"${name}\"\nПомилка -> ${error}`, 'error');
-    }
+    //} catch (error) {
+    //    log(`Щось пішло не так під час створення каналу \"${name}\"\nПомилка -> ${error}`, 'error');
+    //}
     
 }
 
@@ -82,7 +84,7 @@ module.exports.groundChannel = groundChannel;
 
 
 async function createOrFindMessage(client, channel, message = {}) {
-    try {
+    //try {
         const messages = await channel.messages.fetch();
         let singularMessage;
         //знаходимо
@@ -102,9 +104,9 @@ async function createOrFindMessage(client, channel, message = {}) {
         }
 
         return singularMessage
-    } catch (error) {
-        log(error, 'error')
-    }
+    //} catch (error) {
+        //log(error, 'error')
+    //}
 }
 
 module.exports.createOrFindMessage = createOrFindMessage;

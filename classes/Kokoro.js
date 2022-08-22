@@ -1,5 +1,5 @@
-const { Client, Intents } = require('discord.js');
-const mysql = require('mysql');
+const { Client, GatewayIntentBits } = require('discord.js');
+//const mysql = require('mysql');
 const fs = require('fs');
 const { groundChannel, createOrFindMessage } = require('../utils/channelsUtils.js');
 const InfoBook = require('./books/InfoBook.js');
@@ -12,12 +12,12 @@ class Kokoro extends Client {
     constructor () {
         super({
             intents: [
-				Intents.FLAGS.GUILDS,
-				Intents.FLAGS.GUILD_MEMBERS,
-				Intents.FLAGS.GUILD_MESSAGES,
-				Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-				Intents.FLAGS.GUILD_VOICE_STATES,
-				Intents.FLAGS.DIRECT_MESSAGES
+				GatewayIntentBits.Guilds,
+				GatewayIntentBits.GuildMembers,
+				GatewayIntentBits.GuildMessages,
+				GatewayIntentBits.GuildMessageReactions,
+				GatewayIntentBits.GuildVoiceStates,
+				GatewayIntentBits.DirectMessages
 			],
 			allowedMentions: {
 				parse: ["users"]
@@ -37,7 +37,6 @@ class Kokoro extends Client {
 		this.owner = await this.guild.members.fetch(this.config.owner);
 		
 		this.player = new Player(this);
-		console.log(this.player);
 		this.player.on('trackStart', async (queue, track) => {
 			if(this.player.getQueue(this.guild).repeatMode != 1) {
 				await queue.metadata.channel.send({embeds: [{
