@@ -16,7 +16,7 @@ const stop = new Command(client, {
         new ErrorAlarm({
             description: 'Ви повинні бути в одному голосовому каналі з ботом, аби давати йому команди',
             timeout: 10,
-            color: '#ffff00',
+            hexColor: '#ffff00',
             channel: message.channel
         })
         return;
@@ -24,7 +24,7 @@ const stop = new Command(client, {
         client.player.deleteQueue(client.guild)
         await message.channel.send({embeds: [{
             description: `${member} знищив музичну чергу`,
-            color: '#ff0000'
+            hexColor: '#ff0000'
         }]})
     }
 })
