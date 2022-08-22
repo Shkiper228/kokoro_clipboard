@@ -36,7 +36,7 @@ class Kokoro extends Client {
 		log(`Кількість емодзі: ${this.guild.emojis.cache.size}`)
 		this.owner = await this.guild.members.fetch(this.config.owner);
 		
-		/*this.player = new Player(this);
+		this.player = new Player(this);
 		this.player.on('trackStart', async (queue, track) => {
 			if(this.player.getQueue(this.guild).repeatMode != 1) {
 				await queue.metadata.channel.send({embeds: [{
@@ -57,7 +57,7 @@ class Kokoro extends Client {
 
 		this.player.on('error', (queue, error) => {
 			log(`Сталась помилка --> ${error}`)
-		})*/
+		})
 		
 		
 		await this.initPrimaryChannels();
