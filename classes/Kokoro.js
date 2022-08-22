@@ -111,7 +111,7 @@ class Kokoro extends Client {
 		})*/
 
 		//creatende privat voice
-		this.creatende_privat_voice = await groundChannel(this, '[+] Створити приватний канал', {type: 'GUILD_VOICE'})
+		//this.creatende_privat_voice = await groundChannel(this, '[+] Створити приватний канал', {type: 'GUILD_VOICE'})
 	}
 
 	async loadCommands () {
