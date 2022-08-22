@@ -95,12 +95,9 @@ class Kokoro extends Client {
 		})
 
 		await this.begin_commandBook.start()
-		
-		await this.begin_channel.permissionOverwrites.create(this.guild.roles.everyone, {
-			'VIEW_CHANNEL': true,
-			'SEND_MESSAGES': false,
-			'ADD_REACTIONS': false
-		})
+
+
+		this.map_channel = await groundChannel(this, '🗺мапа');
 		
 		//users channel
 		//this.users_channel = await groundChannel(this, '📗users');
@@ -160,7 +157,7 @@ class Kokoro extends Client {
 			const book = new InfoBook({
 				client: this,
 				folder_path: `${path}/infoBooks/${folder.toString()}`,
-				channel: this.begin_channel,
+				channel: this.map_channel,
 				emojis: ['🚂', '📜', '🎨', '🌃', '🔫', '💤', '🔥', '👤', '9️⃣', '0️⃣']
 			})
 
