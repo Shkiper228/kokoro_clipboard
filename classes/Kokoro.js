@@ -20,6 +20,7 @@ class Kokoro extends Client {
 				GatewayIntentBits.GuildMessages,
 				GatewayIntentBits.GuildMessageReactions,
 				GatewayIntentBits.GuildMessageTyping,
+				GatewayIntentBits.MessageContent,
 				
 				
 				GatewayIntentBits.DirectMessages

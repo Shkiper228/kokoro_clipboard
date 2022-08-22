@@ -12,7 +12,7 @@ const play = new Command(client, {
     const member = await client.guild.members.fetch(message.author.id);
     const memberBot = await client.guild.members.fetch(client.user.id);
 
-
+    console.log(member.voice)
     if(!member.voice.channelId){
         await message.channel.send('Ви не в голосовому каналі');
         return;
@@ -25,7 +25,7 @@ const play = new Command(client, {
 
             if(!track)return await message.channel.send({ embeds: [{
                 description: 'Не знайдено трек за запитом',
-                color: '#ffff00'
+                hexColor: '#ffff00'
             }]})
 
             const queue = client.player.createQueue(client.guild, {
@@ -55,7 +55,7 @@ const play = new Command(client, {
             } catch (error) {
                 message.channel.send({embeds: [{
                     description: `На жаль, неможливо відтворити цей трек. Помилка: ${error}`,
-                    color: '#ff0000'
+                    hexColor: '#ff0000'
                 }]})
             }
             
@@ -74,7 +74,7 @@ const play = new Command(client, {
             if(!track) {
                 await message.channel.send({ embeds: [{
                     description: 'Не знайдено трек за запитом',
-                    color: '#ffff00'
+                    hexColor: '#ffff00'
                 }]});
                 queue.destroy
                 return;
@@ -99,7 +99,7 @@ const play = new Command(client, {
                 } catch (error) {
                     message.channel.send({embeds: [{
                         description: `На жаль, неможливо додати в чергу цей трек. Помилка: ${error}`,
-                        color: '#ff0000'
+                        hexColor: '#ff0000'
                     }]})
                     return;
                 }

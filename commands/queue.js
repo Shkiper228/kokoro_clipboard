@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const Command = require('../classes/Command.js');
 const log = require('../classes/Logger.js');
 const ErrorAlarm = require('../classes/ErrorAlarm');
@@ -16,7 +16,7 @@ const queuE = new Command(client, {
         new ErrorAlarm({
             description: 'Ви повинні бути в одному голосовому каналі з ботом, аби давати йому команди',
             timeout: 10,
-            color: '#ffff00',
+            hexColor: '#ffff00',
             channel: message.channel
         })
         return;

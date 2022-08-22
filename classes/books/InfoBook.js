@@ -1,4 +1,4 @@
-const {MessageEmbed} = require('discord.js');
+const {EmbedBuilder} = require('discord.js');
 const path_lib = require('path');
 const fs = require('fs');
 const log = require('../Logger.js');
@@ -75,7 +75,7 @@ class InfoBook {
                     description: this.contentPage
                 }]});
             } else {
-                const embed = new MessageEmbed({
+                const embed = new EmbedBuilder({
                     title: 'Інформація',
                 })
                 console.log(this.pages[pageNumber])

@@ -9,7 +9,7 @@ async function bump_check(client, message) {
         const bumper = await client.guild.members.fetch(message.embeds[0].description.slice(message.embeds[0].description.indexOf('<@') + 2, message.embeds[0].description.indexOf('<@') + 20))
         await message.channel.send({embeds:[{
             description: `${bumper} бамп успішний. Таймер запущено`,
-            color: '#43B582'
+            hexColor: '#43B582'
         }]})
 
         new Timer(client, 4*60, message.channelId, 'Пора бампити!', `Час для наступного бампу пройшов\nПопросіть кого-небудь зробити бамп сервера`, `${bumper}`, '43B582');
@@ -45,7 +45,7 @@ async function updateXP(client, message, member) {
                     content: `${member}`,
                     embeds: [{
                         description: `Ви досягнули ${rows[0].level} рівень! Вітаєм!`,
-                        color: '#2D7144'
+                        hexColor: '#2D7144'
                     }]
                 })
             };

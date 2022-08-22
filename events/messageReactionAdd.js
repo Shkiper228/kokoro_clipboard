@@ -81,7 +81,7 @@ const messageReactionAdd = new Event(client, async (messageReaction, user) => {
                 if (user.id != game.crossPlayer.id) {
                     messageReaction.message.channel.send({embeds: [{
                         description: `${user} зараз не ваш хід!`,
-                        color: '#940000'
+                        hexColor: '#940000'
                     }]})
                     return;
                 }

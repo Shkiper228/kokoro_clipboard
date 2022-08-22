@@ -1,4 +1,4 @@
-const {MessageEmbed} = require('discord.js');
+const {EmbedBuilder} = require('discord.js');
 const fs = require('fs');
 const { createOrFindMessage } = require('../../utils/channelsUtils.js');
 const {log} = require('../Logger.js');
