@@ -13,10 +13,15 @@ class Kokoro extends Client {
         super({
             intents: [
 				GatewayIntentBits.Guilds,
+				GatewayIntentBits.GuildBans,
 				GatewayIntentBits.GuildMembers,
+				GatewayIntentBits.GuildInvites,
+				GatewayIntentBits.GuildVoiceStates,
 				GatewayIntentBits.GuildMessages,
 				GatewayIntentBits.GuildMessageReactions,
-				GatewayIntentBits.GuildVoiceStates,
+				GatewayIntentBits.GuildMessageTyping,
+				
+				
 				GatewayIntentBits.DirectMessages
 			],
 			allowedMentions: {
