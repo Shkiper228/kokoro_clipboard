@@ -1,0 +1,30 @@
+{
+  "name": "kokoro",
+  "version": "1.0.0",
+  "description": "Kokoro discord.js bot for Mroko's server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shkiper228/kokoro.git"
+  },
+  "author": "Volodymyr Myrosh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shkiper228/kokoro/issues"
+  },
+  "homepage": "https://github.com/Shkiper228/kokoro#readme",
+  "dependencies": {
+    "@discordjs/opus": "^0.5.3",
+    "canvas": "^2.9.1",
+    "chalk": "^4.1.2",
+    "discord-player": "^5.2.2",
+    "discord.js": "^13.6.0",
+    "ffmpeg": "^0.0.4",
+    "mysql": "^2.18.1",
+    "node-fetch": "^2.6.6",
+    "ytdl-core": "^4.11.0"
+  }
+}
