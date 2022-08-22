@@ -37,6 +37,7 @@ class Kokoro extends Client {
 		this.owner = await this.guild.members.fetch(this.config.owner);
 		
 		this.player = new Player(this);
+		console.log(this.player);
 		this.player.on('trackStart', async (queue, track) => {
 			if(this.player.getQueue(this.guild).repeatMode != 1) {
 				await queue.metadata.channel.send({embeds: [{
