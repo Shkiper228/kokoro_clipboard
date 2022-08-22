@@ -81,7 +81,8 @@ class InfoBook {
                 console.log(this.pages[pageNumber])
                 let str = '';
                 this.pages[pageNumber].forEach(page => {
-                    str += page
+                    str += '\n';
+                    str += page;
                 })
                 embed.addFields({ 
                     name: '_-||-_',
