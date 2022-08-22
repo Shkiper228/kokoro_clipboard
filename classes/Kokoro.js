@@ -71,7 +71,7 @@ class Kokoro extends Client {
 
 	async initPrimaryChannels() {
 		//welcome
-		this.begin_channel = await groundChannel(this, '✅welcome');
+		this.begin_channel = await groundChannel(this, '✔верифікація');
 		this.begin_commandBook = new CommandBook(this, this.begin_channel.id, this.begin_channel, 
 				'Верифікація', 
 				'Раді вас вітати на сервері, якщо ви вже прошарений діскорд користувач, нажміть на 🐇\nЯкщо ви вперше в дискорді або вперше в нашому містечку нажміть на  🌱')
