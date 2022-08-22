@@ -6,7 +6,7 @@ const InfoBook = require('./books/InfoBook.js');
 const log = require('./Logger.js');
 const Timer = require('./Timer.js');
 const CommandBook = require('../classes/books/CommandBook.js');
-//const { Player } = require('discord-player');
+const { Player } = require('discord-player');
 
 class Kokoro extends Client {
     constructor () {
