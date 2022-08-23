@@ -36,7 +36,7 @@ const jump = new Command(client, {
             const num = checkAndConvertOfType(args[0], 'int');
             if(num) {
                 try {
-                    queue.just(num)
+                    queue.jump(num)
                 } catch (error) {
                     log(`Не вдалось перестрибнути на іншу позицію трека музичної черги\nПомилка: ${error}`, 'error');
                 }
