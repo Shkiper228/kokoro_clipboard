@@ -9,6 +9,7 @@ const div = new Command(client, {
     ownerOnly: false,
     adminOnly: false
 }, async (client, message, args) => {
+    const member = await client.guild.members.fetch(message.author.id);
     client.connection.query(`SELECT * FROM members WHERE id = ${message.author.id}`, (error, rows) => {
         const current_date = new Date().toLocaleDateString('uk-UA', { timeZone: 'Europe/Kiev' });
         log(`${current_date} || ${rows[0].last_divination_date}`);
@@ -16,7 +17,7 @@ const div = new Command(client, {
             client.connection.query(`UPDATE members SET last_divination_date = \"${current_date}\" WHERE id = ${message.author.id}`)
             const msg = divinations[Math.floor(Math.random() * divinations.length)];
             message.channel.send({
-                content: message.author,
+                content: `${message.author}`,
                 embeds: [{
                     title: 'Ворожіння',
                     description: msg,
