@@ -38,7 +38,7 @@ const jump = new Command(client, {
             const amountTracks = queue.tracks.length
             if(num && num >= 1) {
                 try {
-                    queue.jump(num - 1)
+                    queue.skipTo(num - 1)
                 } catch (error) {
                     log(`Не вдалось перестрибнути на іншу позицію трека музичної черги\nПомилка: ${error}`, 'error');
                 }
