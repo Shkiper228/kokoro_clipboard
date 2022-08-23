@@ -1,4 +1,5 @@
 const { Invite } = require("discord.js");
+const { PermissionsBitField } = require('discord.js');
 
 class PrivatChannel {
     constructor (client, owner) {
@@ -16,7 +17,7 @@ class PrivatChannel {
             permissionOverwrites: [
                 {
                     id: this.owner.user.id,
-                    allow: 'MANAGE_CHANNELS'
+                    allow: PermissionsBitField.Flags.ManageChannels
                 }
             ]
         })
