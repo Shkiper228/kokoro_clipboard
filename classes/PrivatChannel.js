@@ -8,7 +8,8 @@ class PrivatChannel {
 
     async init () {
         this.owner = await this.client.guild.members.fetch(this.ownerId);
-        this.channel = await this.client.guild.channels.create(`🔒 ${this.owner.user.tag}`, {
+        this.channel = await this.client.guild.channels.create({
+            name: `🔒 ${this.owner.user.tag}`,
             type: 'GUILD_VOICE',
             parent: this.owner.voice.channel.parent,
             userLimit: 2,
