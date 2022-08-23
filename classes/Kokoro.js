@@ -331,7 +331,6 @@ class Kokoro extends Client {
 		)
 
 		this.connection.query('SELECT * FROM privat_channels', (err, rows) => {
-			console.log(rows);
 			rows.forEach(async (channel) => {
 				try {
 					const voice = await this.guild.channels.fetch(channel.id)
