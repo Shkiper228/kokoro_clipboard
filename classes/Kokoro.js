@@ -186,7 +186,7 @@ class Kokoro extends Client {
 				log(`Підключення неуспішне ${err}`, 'error')
 			} else {
 				log('Підключення успішне')
-				//await this.regMembers()
+				await this.regMembers()
 				setInterval (() => {
 					this.connection.query('SELECT 1')
 				}, 10000)
@@ -194,7 +194,7 @@ class Kokoro extends Client {
 		});
 	}
 
-	/*async regMembers () {
+	async regMembers () {
 		this.connection.query(`CREATE TABLE IF NOT EXISTS members ( 
 			id BIGINT NOT NULL ,
 			messages INT NOT NULL DEFAULT 0 ,
@@ -217,7 +217,7 @@ class Kokoro extends Client {
 				})
 			}
 		})
-	}*/
+	}
 	
 	/*async regTimers () {
 		function getTimeOfDaysMonthYears(days, currentM, month, currentY, year) {
