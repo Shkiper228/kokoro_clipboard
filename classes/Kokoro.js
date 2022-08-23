@@ -72,7 +72,7 @@ class Kokoro extends Client {
 		await this.loadInfoBooks();
 		await this.dbConnection();
 		//await this.regTimers();
-		//await this.regChannels();
+		await this.regChannels();
 	}
 
 	async initPrimaryChannels() {
