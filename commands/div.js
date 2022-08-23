@@ -12,7 +12,7 @@ const div = new Command(client, {
         const current_date = new Date().toLocaleDateString('uk-UA', { timeZone: 'Europe/Kiev' });
         log(current_date);
         if(rows.last_divination_date != current_date) {
-            client.connection.query(`UPDATE members SET last_divination_date = ${current_date} WHERE id = ${message.author.id}`)
+            client.connection.query(`UPDATE members SET last_divination_date = \"${current_date}\" WHERE id = ${message.author.id}`)
             message.channel.send({embeds: [{
                 description: 'Ну тобі буде нормально'
             }]})
