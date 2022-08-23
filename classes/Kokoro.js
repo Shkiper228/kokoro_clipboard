@@ -1,5 +1,5 @@
 const { Client, GatewayIntentBits } = require('discord.js');
-//const mysql = require('mysql');
+const mysql = require('mysql');
 const fs = require('fs');
 const { groundChannel, createOrFindMessage } = require('../utils/channelsUtils.js');
 const InfoBook = require('./books/InfoBook.js');
@@ -70,7 +70,7 @@ class Kokoro extends Client {
 		await this.loadCommands();
 		await this.loadEvents();
 		await this.loadInfoBooks();
-		//await this.dbConnection();
+		await this.dbConnection();
 		//await this.regTimers();
 		//await this.regChannels();
 	}
@@ -114,7 +114,7 @@ class Kokoro extends Client {
 		})*/
 
 		//creatende privat voice
-		//this.creatende_privat_voice = await groundChannel(this, '[+] Створити приватний канал', {type: 'GUILD_VOICE'})
+		this.creatende_privat_voice = await groundChannel(this, '[+] Створити приватний канал', {type: 'GUILD_VOICE'})
 	}
 
 	async loadCommands () {
@@ -171,7 +171,7 @@ class Kokoro extends Client {
 		})
 	}
 
-	/*
+	
 	async dbConnection () {
 
 		this.connection = await mysql.createConnection({
@@ -181,18 +181,18 @@ class Kokoro extends Client {
 			database: process.env.DB_DATABASE != undefined ? process.env.DB_DATABASE : require('../secret.json').DB_DATABASE
 		})
 		
-		await this.connection.connect(async (err) => {
+		this.connection.connect(async (err) => {
 			if (err) {
 				log(`Підключення неуспішне ${err}`, 'error')
 			} else {
 				log('Підключення успішне')
-				await this.regMembers()
+				//await this.regMembers()
 				setInterval (() => {
 					this.connection.query('SELECT 1')
 				}, 10000)
 			}
 		});
-	}*/
+	}
 
 	/*async regMembers () {
 		this.connection.query(`CREATE TABLE IF NOT EXISTS members ( 
@@ -322,7 +322,7 @@ class Kokoro extends Client {
 		})
 	}*/
 
-	/*async regChannels () {
+	async regChannels () {
 		this.connection.query(`CREATE TABLE IF NOT EXISTS privat_channels ( 
 			id VARCHAR(20) NOT NULL ,
 			owner VARCHAR(23),
@@ -346,7 +346,7 @@ class Kokoro extends Client {
 				}
 			})
 		})
-	}*/
+	}
 
 
 	login () {

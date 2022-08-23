@@ -20,6 +20,7 @@
     "chalk": "^4.1.2",
     "discord-player": "^5.3.1",
     "discord.js": "^14.3.0",
+    "mysql": "^2.18.1",
     "opusscript": "^0.0.8"
   }
 }
