@@ -34,19 +34,31 @@ const jump = new Command(client, {
             const queue = client.player.getQueue(client.guild);
 
             const num = checkAndConvertOfType(args[0], 'int');
-            if(num) {
+            console.log(queue.tracks)
+            const amountTracks = queue.tracks.length
+            if(num && num >= 1) {
                 try {
-                    queue.jump(num)
+                    queue.jump(num - 1)
                 } catch (error) {
                     log(`Не вдалось перестрибнути на іншу позицію трека музичної черги\nПомилка: ${error}`, 'error');
                 }
             } else {
-                new ErrorAlarm({
-                    description: 'Ви повинні ввести ціле число',
-                    timeout: 10,
-                    hexColor: '#ffff00',
-                    channel: message.channel
-                })
+                if(num > amountTracks) {
+                    new ErrorAlarm({
+                        description: 'Треку з таким номером немає',
+                        timeout: 10,
+                        hexColor: '#ffff00',
+                        channel: message.channel
+                    })
+                } else {
+                    new ErrorAlarm({
+                        description: 'Ви повинні ввести натуральне число',
+                        timeout: 10,
+                        hexColor: '#ffff00',
+                        channel: message.channel
+                    })
+                }
+                
             } 
         }
     }
