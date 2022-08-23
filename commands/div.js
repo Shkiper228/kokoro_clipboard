@@ -9,8 +9,8 @@ const div = new Command(client, {
 }, async (client, message, args) => {
     client.connection.query(`SELECT * FROM members WHERE id = ${message.author.id}`, (error, rows) => {
         const current_date = new Date().toLocaleDateString('uk-UA', { timeZone: 'Europe/Kiev' });
-        log(`${current_date} || ${rows.last_divination_date}`);
-        if(rows.last_divination_date != current_date) {
+        log(`${current_date} || ${rows[0].last_divination_date}`);
+        if(rows[0].last_divination_date != current_date) {
             client.connection.query(`UPDATE members SET last_divination_date = \"${current_date}\" WHERE id = ${message.author.id}`)
             message.channel.send({embeds: [{
                 description: 'Ну тобі буде нормально'
