@@ -11,7 +11,7 @@ class PrivatChannel {
         this.owner = await this.client.guild.members.fetch(this.ownerId);
         this.channel = await this.client.guild.channels.create({
             name: `🔒 ${this.owner.user.tag}`,
-            type: 'GUILD_VOICE',
+            type: 2,
             parent: this.owner.voice.channel.parent,
             userLimit: 2,
             permissionOverwrites: [
