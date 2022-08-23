@@ -196,11 +196,12 @@ class Kokoro extends Client {
 
 	async regMembers () {
 		this.connection.query(`CREATE TABLE IF NOT EXISTS members ( 
-			id BIGINT NOT NULL ,
-			messages INT NOT NULL DEFAULT 0 ,
-			experience INT NOT NULL DEFAULT 0 ,
-			level INT NOT NULL DEFAULT 0 ,
+			id BIGINT NOT NULL,
+			messages INT NOT NULL DEFAULT 0,
+			experience INT NOT NULL DEFAULT 0,
+			level INT NOT NULL DEFAULT 0,
 			money INT NOT NULL DEFAULT 0,
+			last_divination_date VARCHAR(19) NULL,
 			PRIMARY KEY (ID)
 			)`
 			)
