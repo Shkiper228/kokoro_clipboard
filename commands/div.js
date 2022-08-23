@@ -7,7 +7,6 @@ const div = new Command(client, {
     ownerOnly: false,
     adminOnly: false
 }, async (client, message, args) => {
-    client.connection.query('ALTER TABLE members ADD last_divination_date VARCHAR(19) NULL')
     client.connection.query(`SELECT * FROM members WHERE id = ${message.author.id}`, (error, rows) => {
         const current_date = new Date().toLocaleDateString('uk-UA', { timeZone: 'Europe/Kiev' });
         log(current_date);
@@ -17,7 +16,6 @@ const div = new Command(client, {
                 description: 'Ну тобі буде нормально'
             }]})
         }
-        
     })
 })
 
