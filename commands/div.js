@@ -21,13 +21,13 @@ const div = new Command(client, {
                 embeds: [{
                     title: 'Ворожіння',
                     description: msg,
-                    hexColor: '50044D'
+                    hexColor: '#50044D'
                 }]
             })
         } else {
             new ErrorAlarm({
                 description: 'Ви на сьогодні уже запитували ворожіння! Спробуйте завтра',
-                color: '891928',
+                color: '#891928',
                 channel: message.channel
             })
         }
