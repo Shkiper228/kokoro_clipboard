@@ -1,6 +1,7 @@
 const Event = require('../classes/Event.js');
 const log = require('../classes/Logger.js');
 const Timer = require('../classes/Timer.js');
+const admins_roles = require('../config.json').admins_roles;
 
 
 async function bump_check(client, message) {
@@ -59,7 +60,8 @@ async function updateXP(client, message, member) {
 async function check_adds(client, message, member) {
     if(message.content.indexOf('https://discord.gg/') != -1) { //провірка, чи це посилання на діскорд сервер
         log('Знайдено посилання на діскорд сервер', 'warning')
-        const role = member.roles.highest.name.toLowerCase(); //найвища роль
+        const roles = member.roles.cache; //найвища роль
+        console.log(roles);
         
         let isOk = false;
         await message.guild.invites.fetch().then(links => {
@@ -71,40 +73,29 @@ async function check_adds(client, message, member) {
             })
         })
 
+        admins_roles.forEach(admin_role => {
+            roles.forEach(role => {
+                if(role.id == admin_role) isOk = true
+            })
+        })
 
-        
-        if(role == 'vip' || role == 'support'  || role == 'underground' || role == 'guard' || role == 'admin' || role == 'redactor' || role == 'leader' ){ //дозвіл вищим ролям
+        if(admins_roles){ //дозвіл вищим ролям
             log('Роль з превілегією, якій дозволено надсилати посилання на інший діскорд сервер', 'warning');
             isOk = true;
         }
 
-        
-
-        
-        
 
         if(!isOk) {
             const offender = member.user; //порушник
             let err = false;
 
-            let banMessage = await offender.send({embeds: [{
-                description: 'Ви рекламували посторонній діскорд сервер на сервері _Weisttil_, за що вас було автоматично перманентно забанено. Наступного разу уважніше читайте правила!'
+            let warnMessage = await offender.send({embeds: [{
+                description: `Ви рекламували посторонній діскорд сервер на сервері ${this.guild.name}. Уважніше читайте правила!`
             }]})
 
-
-            member.ban({reason: 'Реклама посторонніх діскорд серверів'})
-                .catch(async () => {
-                    log(`Не вдалось забанити порушника ${message.author} під ніком ${message.author.username}. Щось пішло не так`, 'error')
-                    err = true;
-                    banMessage.delete();
-                })
-
-
-            if(!err) {
-                await client.owner.send({embeds: [{
-                        description: `${message.author} рекламував інший діскорд сервер на сервері _Weisttil_!`
-                }]})
-            }
+            await client.owner.send({embeds: [{
+                    description: `${message.author} рекламував інший діскорд сервер на сервері _Weisttil_!`
+            }]})
 
             await message.delete();
         } 
@@ -163,7 +154,7 @@ const messageCreate = new Event(client, async message => {
 
 
     //check adds
-    //check_adds(client, message, member);
+    check_adds(client, message, member);
     
 
     
