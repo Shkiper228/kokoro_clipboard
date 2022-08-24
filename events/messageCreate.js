@@ -144,7 +144,7 @@ async function command_handler(client, message, member) {
 
 const messageCreate = new Event(client, async message => {
     //bump check
-    bump_check(client, message);
+    //bump_check(client, message);
 
 
     //is author bot

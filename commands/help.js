@@ -17,7 +17,7 @@ const help = new Command(client, {
         await message.channel.send({embeds: [{
             title: 'Команди',
             description: description,
-            hexColor: '#004B4B'
+            hexColor: 0x004B4B
         }]})
 })
 
