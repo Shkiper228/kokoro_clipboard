@@ -5,7 +5,7 @@ const {EmbedBuilder} = require('discord.js');
 const guildMemberAdd = new Event(client, async (member) => {
     const embed = new EmbedBuilder()
     .setImage(member.displayAvatarURL())
-    .setDescription(`Ласкаво просимо на сервері, ${member}! Новачок під іменем ${member.user.tag} уже ${member.guild.memberCount}-й\n`)
+    .setDescription(`Кролення ${member} ${member.user.tag} приєдналося до  Mroko Містечко 🤍\n`)
     .setColor(0x00aa00)
 
     await client.users_channel.send({embeds: [embed]});
