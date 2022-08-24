@@ -1,7 +1,7 @@
 const Event = require('../classes/Event.js');
 const log = require('../classes/Logger.js');
 const Timer = require('../classes/Timer.js');
-const admins_roles = require('../config.json').admins_roles;
+const admins_roles = require('../config.json').general.admins_roles;
 
 
 async function bump_check(client, message) {
