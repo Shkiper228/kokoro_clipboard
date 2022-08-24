@@ -85,7 +85,7 @@ async function check_adds(client, message, member) {
             let err = false;
 
             let warnMessage = await offender.send({embeds: [{
-                description: `Ви рекламували посторонній діскорд сервер на сервері ${this.guild.name}. Уважніше читайте правила!`
+                description: `Ви рекламували посторонній діскорд сервер на сервері ${client.guild.name}. Уважніше читайте правила!`
             }]})
 
             await client.owner.send({embeds: [{
