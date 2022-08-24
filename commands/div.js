@@ -25,6 +25,7 @@ const div = new Command(client, {
                 }]
             })
         } else {
+            log(0xdddd00)
             new ErrorAlarm({
                 description: 'Ви на сьогодні уже запитували ворожіння! Спробуйте завтра',
                 color: 0xdddd00,
