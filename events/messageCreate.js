@@ -73,16 +73,11 @@ async function check_adds(client, message, member) {
             })
         })
 
-        admins_roles.forEach(admin_role => {
+        admins_roles.forEach(admin_role => { //роль з превілегією
             roles.forEach(role => {
                 if(role.id == admin_role) isOk = true
             })
         })
-
-        if(admins_roles){ //дозвіл вищим ролям
-            log('Роль з превілегією, якій дозволено надсилати посилання на інший діскорд сервер', 'warning');
-            isOk = true;
-        }
 
 
         if(!isOk) {
