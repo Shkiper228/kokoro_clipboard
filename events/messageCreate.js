@@ -61,7 +61,7 @@ async function check_adds(client, message, member) {
     if(message.content.indexOf('https://discord.gg/') != -1) { //провірка, чи це посилання на діскорд сервер
         log('Знайдено посилання на діскорд сервер', 'warning')
         const roles = member.roles.cache; //найвища роль
-        console.log(roles);
+
         
         let isOk = false;
         await message.guild.invites.fetch().then(links => {
