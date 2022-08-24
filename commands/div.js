@@ -1,7 +1,6 @@
 const Command = require('../classes/Command.js');
 const log = require('../classes/Logger.js');
 const ErrorAlarm = require('../classes/ErrorAlarm.js');
-const { EmbedBuilder } = require('discord.js');
 const divinations = require('../config.json').divinations;
 
 const div = new Command(client, {
@@ -19,17 +18,17 @@ const div = new Command(client, {
             const msg = divinations[Math.floor(Math.random() * divinations.length)];
             message.channel.send({
                 content: `${message.author}`,
-                embeds: [new EmbedBuilder()
-                    .setTitle('Ворожіння')
-                    .setDescription(msg)
-                    .setColor('DarkPurple')
-                ]
+                embeds: [{
+                    title: 'Ворожіння',
+                    description: msg,
+                    color: 0xffffff
+                }]
             })
         } else {
             log(0xdddd00)
             new ErrorAlarm({
                 description: 'Ви на сьогодні уже запитували ворожіння! Спробуйте завтра',
-                color: 'DarkPurple',
+                color: 0xdddd00,
                 channel: message.channel
             })
         }

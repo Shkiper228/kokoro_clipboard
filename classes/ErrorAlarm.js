@@ -20,7 +20,7 @@ class ErrorAlarm {
         try {
             this.message = await this.channel.send({embeds: [{
                 description: this.description,
-                hexColor: this.color
+                color: this.color
             }]})
         } catch (error) {
             log('Не вдалось написати ErrorAlarm', 'error')
