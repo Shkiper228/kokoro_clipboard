@@ -102,16 +102,11 @@ class Kokoro extends Client {
 
 		await this.begin_commandBook.start()
 
-
+		//info book
 		this.map_channel = await groundChannel(this, '🗺мапа');
 		
 		//users channel
-		//this.users_channel = await groundChannel(this, '📗users');
-		/*await this.users_channel.permissionOverwrites.create(this.guild.roles.everyone, {
-			'VIEW_CHANNEL': true,
-			'SEND_MESSAGES': false,
-			'ADD_REACTIONS': false
-		})*/
+		this.users_channel = await groundChannel(this, '🚪поріг');
 
 		//creatende privat voice
 		this.creatende_privat_voice = await groundChannel(this, '[+] Створити приватний канал', {type: 'GUILD_VOICE'})
