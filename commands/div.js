@@ -21,13 +21,13 @@ const div = new Command(client, {
                 embeds: [{
                     title: 'Ворожіння',
                     description: msg,
-                    color: Number(`#${parseInt('50', 16)}${parseInt('04', 16)}${parseInt('4D', 16)}`)
+                    color: 0x50043D
                 }]
             })
         } else {
             new ErrorAlarm({
                 description: 'Ви на сьогодні уже запитували ворожіння! Спробуйте завтра',
-                color: Number(`#${parseInt('89', 16)}${parseInt('19', 16)}${parseInt('28', 16)}`),
+                color: 0x891928,
                 channel: message.channel
             })
         }
