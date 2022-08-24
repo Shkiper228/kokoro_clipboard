@@ -1,9 +1,9 @@
 const Event = require('../classes/Event.js');
 const log = require('../classes/Logger.js');
-const {MessageEmbed} = require('discord.js');
+const {EmbedBuilder} = require('discord.js');
 
 const guildMemberAdd = new Event(client, async (member) => {
-    const embed = new MessageEmbed()
+    const embed = new EmbedBuilder()
     .setImage(member.displayAvatarURL())
     .setDescription(`Ласкаво просимо на сервері, ${member}! Новачок під іменем ${member.user.tag} уже ${member.guild.memberCount}-й\n`)
     .setColor(0x00aa00)
