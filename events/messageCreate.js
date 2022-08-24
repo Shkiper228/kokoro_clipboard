@@ -46,7 +46,7 @@ async function updateXP(client, message, member) {
                     content: `${member}`,
                     embeds: [{
                         description: `Ви досягнули ${rows[0].level} рівень! Вітаєм!`,
-                        hexColor: '#2D7144'
+                        hexColor: 0x2D7144
                     }]
                 })
             };
@@ -145,7 +145,7 @@ const messageCreate = new Event(client, async message => {
 
     
     //updateXP
-    //updateXP(client, message, member)
+    updateXP(client, message, member)
 
 
     //check adds
