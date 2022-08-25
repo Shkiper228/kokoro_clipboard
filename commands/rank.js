@@ -66,26 +66,20 @@ async function formatRankCard(client, canvas, member, message) {
         }
 
         context.font = '25px sans-serif';
-        context.fillStyle = "rgb(0,0,0)";
+        context.fillStyle = "rgb(255,255,255)";
         context.fillText(`${cutNum(expSimple)}/${cutNum(expForNextLvl)}`, canvas.width - padding * 2 - 145, canvas.height - padding * 2 - 5);
-        context.fillStyle = "rgb(47,47,47)";
         context.font = '28px sans-serif';
         context.fillText(`${member.user.tag}`, padding * 2 + 5, padding * 2 + avatar.height + 40);
-        context.fillStyle = "rgb(0,0,0)";
         context.font = '27px sans-serif';
         context.fillText('Ваш рейтинг:', padding * 2 + 5 + avatar.width + 15, padding * 2 + 28);
-        context.fillStyle = "rgb(47,47,47)";
         context.font = '36px sans-serif';
         context.fillText(`#${cutNum(indexAuthor + 1)}`, padding * 2 + 5 + avatar.width + 212, padding * 2 + 26);
 
-        context.fillStyle = "rgb(0,0,0)";
         context.font = '27px sans-serif';
         context.fillText('Рівень: ', padding * 2 + 5 + avatar.width + 300, padding * 2 + 28)
-        context.fillStyle = "rgb(47,47,47)";
         context.font = '36px sans-serif';
         context.fillText(`${cutNum(sortedArr[indexAuthor].level)}`, padding * 2 + 5 + avatar.width + 405, padding * 2 + 26)
 
-        context.fillStyle = "rgb(0,0,0)";
         context.font = '24px sans-serif';
         context.fillText(`Досвід: ${cutNum(sortedArr[indexAuthor].experience)}`, padding * 2 + 5 + avatar.width + 15, padding * 2 + 80)
         context.fillText(`Повідомлення: ${cutNum(sortedArr[indexAuthor].messages)}`, padding * 2 + 5 + avatar.width + 200, padding * 2 + 110)
