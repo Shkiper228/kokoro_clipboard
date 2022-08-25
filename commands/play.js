@@ -12,7 +12,6 @@ const play = new Command(client, {
     const member = await client.guild.members.fetch(message.author.id);
     const memberBot = await client.guild.members.fetch(client.user.id);
 
-    console.log(member.voice)
     if(!member.voice.channelId){
         await message.channel.send('Ви не в голосовому каналі');
         return;

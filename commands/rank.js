@@ -14,11 +14,11 @@ async function formatRankCard(client, canvas, member, message) {
     
 
     //background
-    context.fillStyle = "rgb(30,40,73)";1E2849
+    context.fillStyle = "rgb(79,4,77)";1E2849
     context.fillRect(0, 0, canvas.width, canvas.height);
 
     //rounded rect
-    context.fillStyle = "rgb(32,78,166)";
+    context.fillStyle = "rgb(205,170,215)";
     fillRectRadius(context, padding, padding, canvas.width - padding * 2, canvas.height - padding * 2, 8);
 
     //place and rounding avatar
