@@ -45,7 +45,7 @@ async function updateXP(client, message, member) {
                 await console.send({
                     //content: `${member}`,
                     embeds: [{
-                        description: `Ви досягнули ${rows[0].level} рівень! Вітаєм!`,
+                        description: `${member} Ви досягнули ${rows[0].level} рівень! Вітаєм!`,
                         color: 0x50024D
                     }]
                 })
