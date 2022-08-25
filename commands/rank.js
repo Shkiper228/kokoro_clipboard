@@ -14,7 +14,7 @@ async function formatRankCard(client, canvas, member, message) {
 
 
     //background
-    const background = await loadImage('https://cdn.discordapp.com/attachments/1006658505308127242/1012237541870682162/1C195721-E720-48DF-8F44-7E188251BCEA.png');
+    const background = await loadImage('https://cdn.discordapp.com/attachments/1006658505308127242/1012431032072552538/00.png');
     context.drawImage(background, 0, 0);
     
     //place and rounding avatar
