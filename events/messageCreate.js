@@ -43,7 +43,7 @@ async function updateXP(client, message, member) {
                 rows[0].level++;
                 const console = await client.guild.channels.fetch(client.config.console);
                 await console.send({
-                    content: `${member}`,
+                    //content: `${member}`,
                     embeds: [{
                         description: `Ви досягнули ${rows[0].level} рівень! Вітаєм!`,
                         color: 0x50024D
