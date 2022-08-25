@@ -11,21 +11,15 @@ async function formatRankCard(client, canvas, member, message) {
     //initialization
     const context = canvas.getContext('2d');
     const padding = 10;
-    
+
 
     //background
-    context.fillStyle = "rgb(79,4,77)";1E2849
-    context.fillRect(0, 0, canvas.width, canvas.height);
-
-    //rounded rect
-    context.fillStyle = "rgb(205,170,215)";
-    fillRectRadius(context, padding, padding, canvas.width - padding * 2, canvas.height - padding * 2, 8);
-
+    const background = await loadImage('https://cdn.discordapp.com/attachments/1006658505308127242/1012237541870682162/1C195721-E720-48DF-8F44-7E188251BCEA.png');
+    context.drawImage(background, 0, 0);
+    
     //place and rounding avatar
-    //log(member.user.displayAvatarURL())
     let url = await member.user.avatarURL({ format: 'png', dynamic: true });
     url = `${url.slice(0, url.length - 4)}jpg`
-    log(url);
     const avatar = await loadImage(url);
     
     context.drawImage(avatar, padding * 2 + 5, padding * 2 + 5);
