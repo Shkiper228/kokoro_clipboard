@@ -110,8 +110,7 @@ class Kokoro extends Client {
 
 		//creatende privat voice
 		const parent = await this.guild.channels.fetch('746784850379407423');
-		this.creatende_privat_voice = await groundChannel(this, '👥Приватні кімнати', {type: 'GUILD_VOICE', })
-		this.creatende_privat_voice.parent = parent
+		this.creatende_privat_voice = await groundChannel(this, '👥Приватні кімнати', {type: 'GUILD_VOICE', parent: parent})
 	}
 
 	async loadCommands () {
