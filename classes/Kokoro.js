@@ -84,27 +84,35 @@ class Kokoro extends Client {
 		this.begin_commandBook.emojis = ['🐇', '🌱'];
 		this.begin_commandBook.functions.push(async user => {
 			const member = await this.guild.members.fetch(user.id);
-			let newcomer = member.roles.cache.find(role => {
-				if(role.id == this.config.newcomer) return true
+
+			member.roles.cache.forEach(role => {
+				switch (role.id) {
+					case this.config.newcomer:
+						member.roles.remove(newcomer);
+						break;
+					case this.config.guest:
+						member.roles.remove(guest);
+						break;
+				}
 			})
-			let guest = member.roles.cache.find(role => {
-				if(role.id = this.config.guest) return true
-			})
-			if(newcomer) member.roles.remove(newcomer);
-			if(guest) member.roles.remove(guest);
+			
 			member.roles.add(this.config.experienced);
 		})
 
 		this.begin_commandBook.functions.push(async user => {
 			const member = await this.guild.members.fetch(user.id);
-			let experienced = member.roles.cache.find(role => {
-				if(role.id == this.config.experienced) return true
+
+			member.roles.cache.forEach(role => {
+				switch (role.id) {
+					case this.config.experienced:
+						member.roles.remove(experienced);
+						break;
+					case this.config.guest:
+						member.roles.remove(guest);
+						break;
+				}
 			})
-			let guest = member.roles.cache.find(role => {
-				if(role.id = this.config.guest) return true
-			})
-			if(experienced) member.roles.remove(experienced);
-			if(guest) member.roles.remove(guest);
+ 
 			member.roles.add(this.config.newcomer);
 		})
 
