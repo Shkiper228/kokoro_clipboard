@@ -87,7 +87,11 @@ class Kokoro extends Client {
 			let newcomer = member.roles.cache.find(role => {
 				if(role.id == this.config.newcomer) return true
 			})
+			let guest = member.roles.cache.find(role => {
+				if(role.id = this.config.guest) return true
+			})
 			if(newcomer) member.roles.remove(newcomer);
+			if(guest) member.roles.remove(guest);
 			member.roles.add(this.config.experienced);
 		})
 
@@ -96,7 +100,11 @@ class Kokoro extends Client {
 			let experienced = member.roles.cache.find(role => {
 				if(role.id == this.config.experienced) return true
 			})
+			let guest = member.roles.cache.find(role => {
+				if(role.id = this.config.guest) return true
+			})
 			if(experienced) member.roles.remove(experienced);
+			if(guest) member.roles.remove(guest);
 			member.roles.add(this.config.newcomer);
 		})
 
