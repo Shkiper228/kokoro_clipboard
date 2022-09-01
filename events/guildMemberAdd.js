@@ -10,6 +10,8 @@ const guildMemberAdd = new Event(client, async (member) => {
 
     await client.users_channel.send({embeds: [embed]});
 
+    member.roles.add(client.config.guest);
+
     client.connection.query(`SELECT 1 FROM member WHERE id = ${member.id}`, (err, rows) => {
         if(rows && !rows[0] && !member.user.bot) {
             client.connection.query(`INSERT INTO members (id) VALUES(${member.id})`, err => {
