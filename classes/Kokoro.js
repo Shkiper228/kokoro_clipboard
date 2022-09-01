@@ -88,14 +88,14 @@ class Kokoro extends Client {
 			member.roles.cache.forEach(role => {
 				switch (role.id) {
 					case this.config.newcomer:
-						member.roles.remove(newcomer);
+						member.roles.remove(role);
 						break;
 					case this.config.guest:
-						member.roles.remove(guest);
+						member.roles.remove(role);
 						break;
 				}
 			})
-			
+
 			member.roles.add(this.config.experienced);
 		})
 
@@ -105,10 +105,10 @@ class Kokoro extends Client {
 			member.roles.cache.forEach(role => {
 				switch (role.id) {
 					case this.config.experienced:
-						member.roles.remove(experienced);
+						member.roles.remove(role);
 						break;
 					case this.config.guest:
-						member.roles.remove(guest);
+						member.roles.remove(role);
 						break;
 				}
 			})
