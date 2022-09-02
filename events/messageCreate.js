@@ -58,7 +58,7 @@ async function updateXP(client, message, member) {
 
 
 async function check_adds(client, message, member) {
-    if(message.content.indexOf('https://discord.gg/') != -1) { //провірка, чи це посилання на діскорд сервер
+    if(message.content.indexOf('https://discord.') != -1) { //провірка, чи це посилання на діскорд сервер
         log('Знайдено посилання на діскорд сервер', 'warning')
         const roles = member.roles.cache; //найвища роль
 
