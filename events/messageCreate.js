@@ -88,6 +88,8 @@ async function check_adds(client, message, member) {
                 description: `Ви рекламували посторонній діскорд сервер на сервері ${client.guild.name}. Уважніше читайте правила!`
             }]})
 
+            member.timeout(86400000, 'Кидав посилання на посторонній сервер')
+
             await client.owner.send({embeds: [{
                     description: `${message.author} рекламував інший діскорд сервер на сервері _Weisttil_!`
             }]})
