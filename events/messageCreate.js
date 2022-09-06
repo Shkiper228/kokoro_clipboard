@@ -90,7 +90,7 @@ async function check_adds(client, message, member) {
 
             member.timeout(86400000, 'Кидав посилання на посторонній сервер')
 
-            await client.owner.send({embeds: [{
+            client.owner.send({embeds: [{
                     description: `${message.author} рекламував інший діскорд сервер на сервері _Weisttil_!`
             }]})
 
